@@ -1,0 +1,137 @@
+.bot-guild {
+    position:relative;
+    align-items: center;
+    background-color: #1c1c23;
+    border-radius: 12px;
+    display: flex;
+    height: 96px;
+    justify-content: center;
+    transition: all .3s ease
+}
+
+.bot-guild:focus,
+.bot-guild:hover {
+    background-color: #202029;
+    box-shadow: 0 .65em .8em -.4em #dda200;
+    transform: translateY(-.45em)
+}
+
+@keyframes sweep {
+    0% {
+        transform: translateX(-1em)
+    }
+
+    to {
+        animation-timing-function: ease-out;
+        transform: translateX(12.5em)
+    }
+}
+
+.bot-guild .logo {
+    z-index: 1;
+    -webkit-margin-end: 16px;
+    border-radius: 10px;
+    height: 56px;
+    margin-inline-end: 16px;
+    padding: 0;
+    width: 56px
+}
+
+.bot-guild .text {
+    z-index: 1;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between
+}
+    
+.bot-guild .name {
+    z-index: 1;
+    color: #f2f4fb;
+    font-weight: 700
+}
+
+.bot-guild .membercount {
+    z-index: 1;
+    color: #9b9d9f;
+    margin-top: 8px
+}
+
+.bot-guild .botblur {
+    overflow: hidden;
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    left: 0;
+    top:0;
+    bottom: 0;
+    right: 0;
+    position: absolute; 
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 200% 200%;
+    border: 0;
+    filter: blur(25px);
+    -webkit-filter: blur(25px);
+}
+.bot-guild .botblurcover {
+    border-radius: 12px;
+    opacity: 0.6;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    left: 0;
+    top:0;
+    bottom: 0;
+    right: 0;
+    position: absolute; 
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 200% 200%;
+}
+.mc3 {
+    opacity: 0.5;
+}
+.mc8 {
+    filter: drop-shadow(rgba(0, 0, 0, 0.65) 0px 26px 11px);
+}
+.d-js {
+    display: none !important
+}
+
+[data-toggle=modal] {
+    cursor: pointer
+}
+
+.colored-toast.swal2-icon-success {
+    background-color: #a5dc86 !important;
+}
+
+.colored-toast.swal2-icon-error {
+    background-color: #f27474 !important;
+}
+
+.colored-toast.swal2-icon-warning {
+    background-color: #f8bb86 !important;
+}
+
+.colored-toast.swal2-icon-info {
+    background-color: #3fc3ee !important;
+}
+
+.colored-toast.swal2-icon-question {
+    background-color: #87adbd !important;
+}
+
+.colored-toast .swal2-title {
+    color: white;
+}
+
+.colored-toast .swal2-close {
+    color: white;
+}
+
+.colored-toast .swal2-html-container {
+    color: white;
+}

@@ -1,0 +1,64 @@
+<%- include('header'); -%>
+<html>
+    <body>
+        <section>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"
+                class="fill-gray-900 text-gray-900 fill-gray-900 bg-neutral-700 -mb-px">
+                <path fill-opacity="1"
+                    d="M0,160L40,181.3C80,203,160,245,240,261.3C320,277,400,267,480,240C560,213,640,171,720,144C800,117,880,107,960,96C1040,85,1120,75,1200,64C1280,53,1360,43,1400,37.3L1440,32L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z">
+                </path>
+            </svg>
+        </section>
+    <section class="mh1" id="clients">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h3 class="mt1">Bienvenido <span class="text-primary"> Configure </span> los servidores!</h3>
+                </div>
+
+                <% if(user && user.id){ %>
+                        <% user.guilds.filter(guild=>{
+                            const permsOnGuild = new Permissions(guild.permissions_new);
+                            if(permsOnGuild.has(Permissions.FLAGS.MANAGE_GUILD)) return guild;
+                        }).sort((a, b) => {
+                            return (bot.guilds.cache.get(a.id) == bot.guilds.cache.get(b.id)) ? 0 : a ? -1 : 1;
+                        }).forEach(guild => { %>
+                    
+                            <div class="mc0">
+                                <div class="mcw">
+                                    <div class="mc1">
+                                        <%- guild.icon ? `<div class="mc2" style="background-image: url('https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}');"></div>` : `<div src="https://discord.com/assets/145dc557845548a36a82337912ca3ac5.svg" class="mc3"></div>` %>
+                                        <div class="mc4"></div>
+                                        <div class="mc5">
+                                            <div class="mc6">
+                                                <div class="mc7">
+                                                    <img loading="lazy" src="https://cdn.discordapp.com/icons/<%- guild.id %>/<%- guild.icon %>" class="mc8">
+                                                </div>
+                                        <% if(bot.guilds.cache.get(guild.id)){ %>
+                                            <div class="mc9">
+                                                <div class="mc10"><div class="mc11"><a href="<%- botconfig.domain %>/dashboard/<%- guild.id %>" class="mc12 btn-primary"><span class="mc13">Configurar</span></a></div></div>
+                                                <p class="mc14"><%= guild.name %></p>
+                                            </div>
+                                        <% }else {  %>
+                                            <div class="mc9">
+                                                <div class="mc10"><div class="mc11"><a href="<%- botconfig.domain %>/invite" class="mc12 btn-success"><span class="mc13">Invite</span></a></div></div>
+                                                <p class="mc14"><%= guild.name %></p>
+                                            </div>
+                                        <% } %>
+                                    </div> 
+                                </div> 
+                            </div>
+                        </div> 
+                    </div>
+                    <% }) %>
+                        </div>
+                    <% }else {  %>
+                        <p>¡Por favor ingresa primero!</p>
+                <%  } %>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
+<%- include('footer'); -%>

@@ -1,0 +1,107 @@
+<html lang="en" style="scroll-behavior: smooth;">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="<%= bot.user.displayAvatarURL({size: 128}) %>">
+    <link rel="prefetch" href="<%= bot.user.displayAvatarURL({size: 128}) %>">
+    <title><%= bot.user.username %></title>
+    <meta name="description" content="Fast, High Quality, Efficient. The Defintion of Multipurpose. Get started to enhance your Discord Server with the newest and best Discord Bot! Having the best Music System ever!">
+    <meta name="twitter:card" content="summary">
+    <meta name="theme-color" content="#dda200"/>
+    <meta name="twitter:description" content="Fast, High Quality, Efficient. The Defintion of Multipurpose. Get started to enhance your Discord Server with the newest and best Discord Bot! Having the best Music System ever!">
+    <meta name="twitter:title" content="<%= bot.user.username %> Discord Bot">
+    <meta name="twitter:image" content="<%= bot.user.displayAvatarURL({size: 128}) %>">
+    <meta property="og:description" content="Fast, High Quality, Efficient. The Defintion of Multipurpose. Get started to enhance your Discord Server with the newest and best Discord Bot! Having the best Music System ever!">
+    <meta property="og:title" content="<%= bot.user.username %> Discord Bot">
+    <meta property="og:image" content="<%= bot.user.displayAvatarURL({size: 128}) %>">
+    <link rel="canonical" href="/" />
+    <link rel="stylesheet" href="/fontAwesome.css" />
+    <link rel="stylesheet" href="/sweetAlert.css" />
+    <link rel="stylesheet" href="/style.css" />
+    <script src="/sweetAlert.js"></script>
+    <script>document.documentElement.classList.add('js')</script>
+    <script src="/script.js"></script>
+</head>
+
+<nav class="navbar mn0">
+    <div class="container">
+        <button class="navbar-btn" data-toggle="collapse" data-target="#navbar-row" aria-expanded="false"aria-label="Toggle navigation">
+            <span class="mn2">Abrir el menú de la barra de navegación</span>
+            <span class="mn3"></span>
+            <span class="mn4"></span>
+            <span class="mn4"></span>
+        </button>
+        <div class="navbar-row" id="navbar-row">
+            <ul class="navbar-col">
+                <li>
+                    <a class="mn7" href="/">
+                        <i class="fa-solid fa-house-user"></i> &nbsp; Inicio
+                    </a>
+                </li>
+                <li>
+                    <a class="mn7" href="https://team.arcades.ga/rocket">
+                        <i class="fa-solid fa-right-to-bracket"></i> &nbsp; Invite-Rocket
+                    </a>
+                </li>
+            </ul>
+            <ul class="navbar-col">
+                <a class="mn5" href="/">
+                    <img width="75" height="75" src="<%= bot.user.displayAvatarURL({size: 128}) %>" />
+                </a>
+            </ul>
+            <ul class="navbar-col">
+                <li>
+                    <a class="mn7" href="https://team.arcades.ga/discord" target="_blank">
+                        <i class="fa-solid fa-envelope-open-text"></i> &nbsp; Soporte
+                    </a>
+                </li>
+                <li>
+                    <a class="mn7" href="/invite">
+                        <i class="fa-solid fa-right-to-bracket"></i> &nbsp; Invite
+                    </a>
+                </li>
+                
+                <% if(user && user.id) { %>
+
+                    <li>
+                        <button id="dropdownNavbarButton" data-dropdown-toggle="dropdownNavbar"
+                            class="mn6">
+                            <img src="https://cdn.discordapp.com/avatars/<%=user.id%>/<%=user.avatar%>.png" width="35" height="35" style="border-radius:50%" />
+                            <svg class="mn8" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"clip-rule="evenodd"></path>
+                            </svg>
+                        </button>
+                        <div id="dropdownNavbar"
+                            class="mn9">
+                            <ul class="mn10" aria-labelledby="dropdownNavbarButton">
+                                <li>
+                                    <hr class="text-muted" />
+                                </li>
+                                <li>
+                                    <a href="/dashboard" class="mn11">Dashboard</a>
+                                </li>
+                                <li>
+                                    <hr class="text-muted" />
+                                </li>
+                            </ul>
+                            <div class="py-1">
+                                <a href="/logout" class="mn12">Salir</a>
+                            </div>
+                        </div>
+                      </li>
+
+                  <% }else { %>
+
+                    <li>
+                        <a class="mn13 btn btn-success" href="/login">
+                            <i class="fa-brands fa-discord"></i> Login
+                        </a>
+                    </li>
+
+                  <% }%>
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+</html>
