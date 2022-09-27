@@ -10,7 +10,8 @@ const client = new Discord.Client({
     partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
     intents: [ Discord.Intents.FLAGS.GUILDS, Discord.Intents.FLAGS.GUILD_MESSAGES, ]
 });
-
+//base de datos enmap
+client.settings = new Enmap({ name: "settings",dataDir: "./databases/bot"});
 //creacion de respuestas
 client.on("messageCreate", (message) => {
     if(!message.guild || message.author.bot) return;
@@ -18,10 +19,6 @@ client.on("messageCreate", (message) => {
         prefix: config.prefix,
         holamundo: "Hola como estas :)",
 });
-
-//base de datos enmap
-client.settings = new Enmap({ name: "settings",dataDir: "./databases/settings"});
-
     //Obtener la configuración
     let { prefix, holamundo } = client.settings.get(message.guild.id)
 
