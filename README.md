@@ -39,5 +39,6 @@ Nuestra [**Comunidad**](https://team.arcades.ga/discord) de discord nos nedicamo
        * Algo como eso tenga en cuenta el **HTTP** no agreges **HTTPS** te congundiras<br />
  
 </details>
-<br /><br />
+
+
 Made by [**Team Arcades**](https://team.arcades.ga/discord) | [**Luis Misaki#4165**](https://discord.com/users/313247783748501505)
