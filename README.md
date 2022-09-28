@@ -1,40 +1,42 @@
-# Public Bot and Support Server!
+# ¡Servidor de Discord!
 
-<a href="https://discord.gg/dcdev"><img src="https://discord.com/api/guilds/773668217163218944/widget.png?style=banner2"></a>
+<a href="https://team.arcades.ga/discord"><img src="https://discord.com/api/guilds/935157109761388554/widget.png?style=banner2"></a>
  
-[**Invite the Public Version of this Bot**](https://milrato.milrato.dev) so you don't need to host it by yourself or [join my Discord server](https://discord.gg/dcdev) to get a custom Bot hosted for you!
+Nuestra [**Comunidad**](https://team.arcades.ga/discord) de discord nos nedicamos a codificar y a traer nuevos codigos fuentes [únase a mi servidor de Discord](https://team .arcades.ga/discord) para obtener un Bot personalizado alojado para usted.
 
 
-# Important notes and thank ❤️
-First of all, thanks for using this Source Code, it was and is a ton of work to create and maintain it!
-That's why I'm asking everyone to [**donate a little bit of money**](https://donate.milrato.dev) or if that's not possible, then join my [Discord Server](https://discord.gg/dcdev)!
-
-  **NOTE:** It is suggested to use the [Sharded (&Clustered) version](https://github.com/Tomato6966/Multipurpose-discord-bot/tree/sharded_with_mongo), if you plan on using it for a VERIFIED BOT (on more then 2000 Servers!)
+**NOTA:** esta es una explicacion simple de como crear una [Dashboard](https://team.arcades.ga/), con esta explicacion rapida usted podra crear un bot con dashboard mucho mejor y avanzado.
  
 
-# Installation Guide 🔥
+# Guia de instalacion 🔥
 
-## ✅ Hosting Requirements
+## ✅ Requisitos para su maquina
 
 <details>
-  <summary>Click to expand</summary>
+  <summary>Click para ver</summary>
 
-  * [nodejs](https://nodejs.org) version 16.6 or higher, I recommend the latest STABLE version
-  * [python](https://python.org) version 3.8 or higher, to install the database `enmap` (better-sqlite3)
-  * A VPS would be advised, so you don't need to keep your PC/laptop/RasPi 24/7 online! [Click here for a debian setup](https://github.com/Tomato6966/Debian-Cheat-Sheet-Setup/wiki/).
-  * Check out my recommended Host: [BERO-HOST](https://bero.milrato.dev) and use code `milrato` for cheap OP VPS (kvm)
-  * [Click here for a Direct Order Link](https://bero-host.de/server/prepaid-kvm-rootserver-paket-mieten)
+  * [nodejs](https://nodejs.org) versión 16.6 o superior, recomiendo la última versión STABLE
+  * [python](https://python.org) versión 3.8 o superior, para instalar la base de datos `enmap` (better-sqlite3)
 
 </details>
 
-## 🤖 Bot Requirements
+## 🤖 Requisitos para iniciar
 
 <details>
-  <summary>Click to expand</summary>
-  **NOTE:** It is suggested to use the [Sharded (&Clustered) version](https://github.com/Tomato6966/Multipurpose-discord-bot/tree/sharded_with_mongo), if you plan on using it for a VERIFIED BOT (on more then 2000 Servers!)
+  <summary>Click para ver</summary>
  
-  1. Download the [Source Code](https://github.com/Tomato6966/Multipurpose-discord-bot/releases/latest)
-     * Either by: `git clone https://github.com/Tomato6966/Multipurpose-discord-bot`
-     * Or by downloading it as a zip from the releases tab or a branch.
-  
+   1. Entre a [Github](https://github.com/Truchorko5566/ejemplo-de-dashboard)
+     * Ejecute en su consola: `git clone https://github.com/Truchorko5566/ejemplo-de-dashboard`
+     * O descargelo desde precionando aqui [ejemplo-de-dashboard](https://github.com/Truchorko5566/ejemplo-de-dashboard.zip)
+     * Entre a `cd ejemplo-de-dashboard`
+     * Entre a `cd ejemplo-de-dashboard/config.json` y agrege sus datos en el token
+     * Entre a `cd ejemplo-de-dashboard/dashboard/dash.json` y agrege sus datos en clientID y secret
+       * Reacuerda que tienes que agregar el **CALLBACK** tando en Discord.dev como en la dashboard
+          ```js
+          {
+          "callback": "http://localhost/callback"
+          }
+          ```
+        Algo como eso tenga en cuenta el **HTTP** no agreges **HTTPS** te congundiras
+ 
 </details>
