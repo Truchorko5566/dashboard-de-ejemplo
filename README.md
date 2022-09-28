@@ -37,6 +37,6 @@ Nuestra [**Comunidad**](https://team.arcades.ga/discord) de discord nos nedicamo
           "callback": "http://localhost/callback"
           }
           ```
-        Algo como eso tenga en cuenta el **HTTP** no agreges **HTTPS** te congundiras
+       * Algo como eso tenga en cuenta el **HTTP** no agreges **HTTPS** te congundiras
  
 </details>
