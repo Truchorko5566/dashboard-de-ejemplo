@@ -25,7 +25,7 @@ Nuestra [**Comunidad**](https://team.arcades.ga/discord) de discord nos nedicamo
 <details>
   <summary>Click para ver</summary>
  
-    1. Ejecute en su consola: `git clone https://github.com/Truchorko5566/ejemplo-de-dashboard`<br />
+   1. Ejecute en su consola: `git clone https://github.com/Truchorko5566/ejemplo-de-dashboard`<br />
      * O descargelo desde precionando aqui [ejemplo-de-dashboard](https://github.com/Truchorko5566/ejemplo-de-dashboard/archive/refs/heads/master.zip)<br />
      * Entre a `cd ejemplo-de-dashboard`<br />
      * Entre a `cd ejemplo-de-dashboard/config.json` y agrege sus datos en el token<br />
