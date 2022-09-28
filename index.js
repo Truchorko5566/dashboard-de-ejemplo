@@ -1,46 +1,71 @@
-const Discord = require("discord.js");
-const config = require(`./config.json`);
-const dash = require(`./dashboard/dash.json`);
-const colors = require("colors");
-const Enmap = require("enmap");
 
-const client = new Discord.Client({
-    shards: "auto",
-    allowedMentions: { parse: [ ], repliedUser: false, },
-    partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
-    intents: [ Discord.Intents.FLAGS.GUILDS, Discord.Intents.FLAGS.GUILD_MESSAGES, ]
-});
-//base de datos enmap
-client.settings = new Enmap({ name: "settings",dataDir: "./databases/bot"});
-//creacion de respuestas
-client.on("messageCreate", (message) => {
-    if(!message.guild || message.author.bot) return;
-    client.settings.ensure(message.guild.id, {
-        prefix: config.prefix,
-        holamundo: "Hola como estas :)",
-});
-    //Obtener la configuración
+    /**********************************************************
+     * @INFO  [TABLA DE CONTENIDO]
+     * 1  Primero ejecutar npm i
+     * 2  crear el bot en discord.dev
+     * 3  colocar datos en ./config.json y tambine en ./dasboard/dash.json
+     * 
+     *   BOT CODED BY: Luis Misaki#4165 | https://team.arcades.ga/discord
+     *********************************************************/
+
+    const Discord = require("discord.js");
+    const config = require(`./config.json`);
+    const dash = require(`./dashboard/dash.json`);
+    const colors = require("colors");
+    const Enmap = require("enmap");
+
+    const client = new Discord.Client({
+        shards: "auto",
+        allowedMentions: { parse: [ ], repliedUser: false, },
+        partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
+        intents: [ Discord.Intents.FLAGS.GUILDS, Discord.Intents.FLAGS.GUILD_MESSAGES, ]
+    });
+
+
+    /**********************************************************
+     * creando la base de datos
+     *********************************************************/
+    client.settings = new Enmap({ name: "settings",dataDir: "./databases/bot"});
+
+    client.on("messageCreate", (message) => {
+        if(!message.guild || message.author.bot) return;
+        client.settings.ensure(message.guild.id, {
+            prefix: config.prefix,
+            holamundo: "Hola como estas :)",
+    });
+
+    /**********************************************************
+     * Variable
+     *********************************************************/
     let { prefix, holamundo } = client.settings.get(message.guild.id)
 
-    //Obtener los argumentos
+    /**********************************************************
+     * Obtener argumentos
+     *********************************************************/
     let args = message.content.slice(prefix.length).trim().split(" ");
     let cmd = args.shift()?.toLowerCase();
 
-   //Si hay un comando, ejecutarlo
+    /**********************************************************
+     * Ejecucion de cmds
+     *********************************************************/
     if(cmd && cmd.length > 0 && message.content.startsWith(prefix)){
-        if(cmd == "prefijo"){
-            message.reply(`¡El prefijo actual es \`${prefix}\`!\n**¡Ve al panel para cambiarlo!**\n> ${dash.website.domain}`).catch(console.error);
+            if(cmd == "prefijo"){
+                message.reply(`¡El prefijo actual es \`${prefix}\`!\n**¡Ve al panel para cambiarlo!**\n> ${dash.website.domain}`).catch(console.error);
+            }
+            if(cmd == "hola"){
+                message.reply(holamundo).catch(console.error);
+            }
         }
-        if(cmd == "hola"){
-            message.reply(holamundo).catch(console.error);
-        }
-    }
-})
+    })
 
-//dashboard
-client.on("ready", () => {
-   require("./dashboard/index.js")(client);
-})
+    /**********************************************************
+     * Iniciar dashboard
+     *********************************************************/
+    client.on("ready", () => {
+    require("./dashboard/index.js")(client);
+    })
 
-//iniciar bot
-client.login(process.env.token || config.token)
+    /**********************************************************
+     * Iniciar bot
+     *********************************************************/
+    client.login(process.env.token || config.token)

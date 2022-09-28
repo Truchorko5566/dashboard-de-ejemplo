@@ -2,8 +2,8 @@
     "config": {
         "port": 80,
         "callback": "http://localhost/callback",
-        "clientID": "1024022200296165498",
-        "secret": "hWEFSNoiReOE91519tW5VdglEQ-FEeTx"
+        "clientID": "CLIENT_ID",
+        "secret": "CLIENT_SECRET"
     },
     "website": {
         "support": "https://team.arcades.ga/discord",

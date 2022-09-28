@@ -1,31 +1,33 @@
 <%- include('header'); -%>
-<html>
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;">
     <body>
         <section>
             <center>
-                <h1 style="font-size: 75px;color:#828cff">
-                    <i class="iconify" data-icon="ant-design:dashboard-filled"></i>
+                <h1 style="font-size: 75px; color: #828cff">
+                    <i class="inconify" data-icon="ant-design:dashboard-filled"></i>
                     <b><%= guild.name %></b> | Dashboard
                 </h1>
-                <div class="form-body" style="margin-top: -2%;">
-                    <div class="form-holder">
-                        <div class="form-content">
-                            <div class="form-items">
-                                <h3> Server Settings</h3>
-                                <p>Change the Server Settings of <%= bot.user.username %> in <%= guild.name %></p>
+                <div class="from-body" style="margin-top: -2;">
+                    <div class="from-holder">
+                        <div class="from-content">
+                            <div class="from-items">
+                                <h3>Configurar Servidor</h3>
+                                <p>Cambia la Configuracion de <%= bot.user.username %> en <%= guild.name %></p>
                                 <form method="POST">
-                                    <h5 style="margin-bottom: 0.5rem; margin-top: 10px;color:#828cff">Prefix:</h5>
-                                    <p style="font-style: italic;" class="disabled">The prefix that is added to discord messages in order to invoke commands.</p>
-                                    <input style="margin-top: -10px;" type="text" class="form-control" name="prefix" value="<%= bot.settings.get(guild.id, 'prefix') %>" placeholder="Your Prefix">
-                                    
-                                    
+                                    <h5 style="margin-bottom: 0.5; margin-top: 10px; color: #828cff">Prefijo:</h5>
+                                    <p style="font-style: italic;" class="disabled">Cambiar el Prefijo</p>
+                                    <input style="margin-top: -10px;" type="text" class="form-control" name="prefix" value="<%= bot.settings.get(guild.id, 'prefix') %>" placeholder="Tu prefijo">
+
                                     <br><br>
-                                    <h5 style="margin-bottom: 0.5rem; margin-top: 10px;color:#828cff">Hello Message:</h5>
-                                    <p style="font-style: italic;" class="disabled">The Message to reply with</p>
-                                    <input style="margin-top: -10px;" type="text" class="form-control" name="holamundo" value="<%= bot.settings.get(guild.id, 'holamundo') %>" placeholder="holamundo">
-                                    
-                                    <button type="submit" class="btn btn-success text-white" style="font-size: 40px;">
-                                        <i class="iconify" data-icon="cil:save"></i> Save Settings
+                                    <h5 style="margin-bottom: 0.5; margin-top: 10px; color: #828cff">Configuracion de mensaje:</h5>
+                                    <p style="font-style: italic;" class="disabled">Cambiar el mensaje</p>
+                                    <input style="margin-top: -10px;" type="text" class="form-control" name="holamundo" value="<%= bot.settings.get(guild.id, 'holamundo') %>" placeholder="Tu mensaje">
+
+
+                                    <br><br>
+                                    <button type="submit" class="btn btn-success text-white">
+                                        <i class="iconify" data-icon="cli:save"></i> Guardar
                                     </button>
                                 </form>
                             </div>
@@ -33,8 +35,7 @@
                     </div>
                 </div>
             </center>
-        </section>    
+        </section>
     </body>
 </html>
 <%- include('footer'); -%>
-

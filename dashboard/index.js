@@ -1,23 +1,34 @@
-const express = require("express");
-const url = require("url");
-const path = require("path");
-const Discord = require("discord.js");
-const ejs = require("ejs");
-const passort = require("passport");
-const bodyParser = require("body-parser");
-const Strategy = require("passport-discord").Strategy;
-const BotConfig = require("../config.json");
-const Settings = require("./dash.json");
-const passport = require("passport");
+    /**********************************************************
+     * @INFO  [TABLA DE CONTENIDO]
+     * 1  colocar datos en ./dash.json
+     * 
+     *   BOT CODED BY: Luis Misaki#4165 | https://team.arcades.ga/discord
+     *********************************************************/
 
-module.exports = client => {
-    // BACKEND DE CONFIGURACIÓN DEL SITIO WEB
+    const express = require("express");
+    const url = require("url");
+    const path = require("path");
+    const Discord = require("discord.js");
+    const ejs = require("ejs");
+    const passort = require("passport");
+    const bodyParser = require("body-parser");
+    const Strategy = require("passport-discord").Strategy;
+    const BotConfig = require("../config.json");
+    const Settings = require("./dash.json");
+    const passport = require("passport");
+
+    module.exports = client => {
+    /**********************************************************
+     * backend de la web
+     *********************************************************/
     const app = express();
     const session = require("express-session");
     const MemoryStore = require("memorystore")(session);
 
 
-    // Inicializar el inicio de sesión de Discord
+    /**********************************************************
+     * incio de session con discord
+     *********************************************************/
     passport.serializeUser((user, done) => done(null, user))
     passport.deserializeUser((obj, done) => done(null, obj))
     passport.use(new Strategy({
@@ -38,7 +49,9 @@ module.exports = client => {
         saveUninitialized: false
     }))
 
-    // MEDIOS
+    /**********************************************************
+     * medios
+     *********************************************************/
     app.use(passport.initialize());
     app.use(passport.session());
 
@@ -55,10 +68,14 @@ module.exports = client => {
         extended: true
     }));
 
-    // Cargando archivos css
+    /**********************************************************
+     * carga todos los archivos css para ejecutar un ruta mejor
+     *********************************************************/
     app.use(express.static(path.join(__dirname, "./css")));
 
-    // Cargando archivos js
+    /**********************************************************
+     * carga todos los archivos js para ejecutar un ruta mejor
+     *********************************************************/
     app.use(express.static(path.join(__dirname, "./js")));
 
     const checkAuth = (req, res, next) => {
@@ -66,6 +83,7 @@ module.exports = client => {
         req.session.backURL = req.url;
         res.redirect("/login");
     }
+
     app.get("/login", (req, res, next) => {
         if(req.session.backURL){
             req.session.backURL = req.session.backURL
@@ -81,6 +99,9 @@ module.exports = client => {
         }, passport.authenticate("discord", { prompt: "none"})
     );
 
+    /**********************************************************
+     * callback para logear
+     *********************************************************/
     app.get("/callback", passport.authenticate("discord", { failureRedirect: "/" }), async (req, res) => {
         let banned = false
         if(banned) {
@@ -126,12 +147,16 @@ module.exports = client => {
         })
     })
 
-    //discord soporte
+    /**********************************************************
+     * discord server
+     *********************************************************/
     app.get("/discord", (req, res) => {
         res.redirect(`${Settings.website.support}`)
     });
 
-    //invitacion
+    /**********************************************************
+     * incitacion
+     *********************************************************/
     app.get("/invite", (req, res) => {
         res.redirect(`https://discord.com/api/oauth2/authorize?client_id=${Settings.config.clientID}&permissions=8&scope=bot%20applications.commands`)
     });
@@ -200,7 +225,9 @@ module.exports = client => {
         })
     })
 
-    //404
+    /**********************************************************
+     * 404
+     *********************************************************/
     app.get("*", (req, res) => {
         var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
         if (fullUrl == Settings.website.domain || fullUrl == Settings.website.domain || fullUrl == Settings.website.domain || fullUrl == Settings.website.domain ) {
@@ -210,6 +237,9 @@ module.exports = client => {
         }
     });
 
+    /**********************************************************
+     * inciar la dashboard
+     *********************************************************/
     const http = require("http").createServer(app);
     http.listen(Settings.config.port, () => {
         console.log(`El sitio web está en línea en el puerto: ${Settings.config.port}, ${Settings.website.domain}`);
