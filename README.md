@@ -25,18 +25,18 @@ Nuestra [**Comunidad**](https://team.arcades.ga/discord) de discord nos nedicamo
 <details>
   <summary>Click para ver</summary>
  
-   1. Entre a [Github](https://github.com/Truchorko5566/ejemplo-de-dashboard)
-     * Ejecute en su consola: `git clone https://github.com/Truchorko5566/ejemplo-de-dashboard`
-     * O descargelo desde precionando aqui [ejemplo-de-dashboard](https://github.com/Truchorko5566/ejemplo-de-dashboard.zip)
-     * Entre a `cd ejemplo-de-dashboard`
-     * Entre a `cd ejemplo-de-dashboard/config.json` y agrege sus datos en el token
-     * Entre a `cd ejemplo-de-dashboard/dashboard/dash.json` y agrege sus datos en clientID y secret
-       * Reacuerda que tienes que agregar el **CALLBACK** tando en Discord.dev como en la dashboard
+   1. Entre a [Github](https://github.com/Truchorko5566/ejemplo-de-dashboard)<br />
+     * Ejecute en su consola: `git clone https://github.com/Truchorko5566/ejemplo-de-dashboard`<br />
+     * O descargelo desde precionando aqui [ejemplo-de-dashboard](https://github.com/Truchorko5566/ejemplo-de-dashboard.zip)<br />
+     * Entre a `cd ejemplo-de-dashboard`<br />
+     * Entre a `cd ejemplo-de-dashboard/config.json` y agrege sus datos en el token<br />
+     * Entre a `cd ejemplo-de-dashboard/dashboard/dash.json` y agrege sus datos en clientID y secret<br />
+       * Reacuerda que tienes que agregar el **CALLBACK** tando en Discord.dev como en la dashboard<br />
           ```js
           {
           "callback": "http://localhost/callback"
           }
           ```
-       * Algo como eso tenga en cuenta el **HTTP** no agreges **HTTPS** te congundiras
+       * Algo como eso tenga en cuenta el **HTTP** no agreges **HTTPS** te congundiras<br />
  
 </details>
