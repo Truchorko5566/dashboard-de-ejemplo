@@ -15,7 +15,7 @@ Nuestra [**Comunidad**](https://team.arcades.ga/discord) de discord nos nedicamo
 <details>
   <summary>Click para ver</summary>
 
-  * [nodejs](https://nodejs.org) versión 16.6 o superior, recomiendo la última versión STABLE
+  * [nodejs](https://nodejs.org) versión 16.17.1 o superior, recomiendo la última versión STABLE
   * [python](https://python.org) versión 3.8 o superior, para instalar la base de datos `enmap` (better-sqlite3)
 
 </details>
