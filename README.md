@@ -30,7 +30,7 @@ Nuestra [**Comunidad**](https://team.arcades.ga/discord) de discord nos nedicamo
      * Entre a `cd ejemplo-de-dashboard`<br />
      * Entre a `cd ejemplo-de-dashboard/config.json` y agrege sus datos en el **TOKEN**<br />
      * Entre a `cd ejemplo-de-dashboard/dashboard/dash.json` y agrege sus datos en **CLIENTID** y **SECRET**<br />
-       * Reacuerda que tienes que agregar el **CALLBACK** tando en Discord.dev como en la dashboard<br />
+       * Reacuerda que tienes que agregar el **CALLBACK** tando en https://discord.dev como en la dashboard<br />
           ```js
           {
           "callback": "http://localhost/callback"
