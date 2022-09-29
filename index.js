@@ -27,6 +27,7 @@
      *********************************************************/
     client.settings = new Enmap({ name: "settings",dataDir: "./databases/bot"});
 
+    /**********************************************************/
     client.on("messageCreate", (message) => {
         if(!message.guild || message.author.bot) return;
         client.settings.ensure(message.guild.id, {
@@ -34,9 +35,6 @@
             holamundo: "Hola como estas :)",
     });
 
-    /**********************************************************
-     * Variable
-     *********************************************************/
     let { prefix, holamundo } = client.settings.get(message.guild.id)
 
     /**********************************************************
