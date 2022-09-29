@@ -40,5 +40,4 @@ Nuestra [**Comunidad**](https://team.arcades.ga/discord) de discord nos nedicamo
  
 </details>
 <br/>
-<br/>
 Made by [**Team Arcades**](https://team.arcades.ga/discord) | [**Luis Misaki#4165**](https://discord.com/users/313247783748501505)
