@@ -1,10 +1,11 @@
 {
   "name": "discord-bot-dashboard",
   "version": "1.0.0",
-  "description": "This Repository is for a Youtube Tutorial",
+  "description": "Tutorial",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
