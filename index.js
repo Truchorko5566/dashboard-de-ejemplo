@@ -8,6 +8,7 @@
      *   BOT CODED BY: Luis Misaki#4165 | https://team.arcades.ga/discord
      *********************************************************/
 
+<<<<<<< HEAD
      const Discord = require("discord.js");
      const config = require(`./config.json`);
      const dash = require(`./dashboard/dash.json`);
@@ -67,3 +68,64 @@
       * Iniciar bot
       *********************************************************/
      client.login(process.env.token || config.token)
+=======
+    const Discord = require("discord.js");
+    const config = require(`./config.json`);
+    const dash = require(`./dashboard/dash.json`);
+    const colors = require("colors");
+    const Enmap = require("enmap");
+
+    const client = new Discord.Client({
+        shards: "auto",
+        allowedMentions: { parse: [ ], repliedUser: false, },
+        partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
+        intents: [ Discord.Intents.FLAGS.GUILDS, Discord.Intents.FLAGS.GUILD_MESSAGES, ]
+    });
+
+
+    /**********************************************************
+     * creando la base de datos
+     *********************************************************/
+    client.settings = new Enmap({ name: "settings",dataDir: "./databases/bot"});
+
+    /**********************************************************/
+    client.on("messageCreate", (message) => {
+        if(!message.guild || message.author.bot) return;
+        client.settings.ensure(message.guild.id, {
+            prefix: config.prefix,
+            holamundo: "Hola como estas :)",
+    });
+
+    let { prefix, holamundo } = client.settings.get(message.guild.id)
+
+    /**********************************************************
+     * Obtener argumentos
+     *********************************************************/
+    let args = message.content.slice(prefix.length).trim().split(" ");
+    let cmd = args.shift()?.toLowerCase();
+
+    /**********************************************************
+     * Ejecucion de cmds
+     *********************************************************/
+    if(cmd && cmd.length > 0 && message.content.startsWith(prefix)){
+            if(cmd == "prefijo"){
+                message.reply(`¡El prefijo actual es \`${prefix}\`!\n**¡Ve al panel para cambiarlo!**\n> ${dash.website.domain}`).catch(console.error);
+            }
+            if(cmd == "hola"){
+                message.reply(holamundo).catch(console.error);
+            }
+        }
+    })
+
+    /**********************************************************
+     * Iniciar dashboard
+     *********************************************************/
+    client.on("ready", () => {
+    require("./dashboard/index.js")(client);
+    })
+
+    /**********************************************************
+     * Iniciar bot
+     *********************************************************/
+    client.login(process.env.token || config.token)
+>>>>>>> 555190dc33b80665eaf0b2113e288cd2bfc1f86d
