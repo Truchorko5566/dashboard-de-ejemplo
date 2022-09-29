@@ -1,8 +1,10 @@
 # ¡Servidor de Discord!
 <center>
-<div>
-<a href="https://team.arcades.ga/discord"><img src="https://discord.com/api/guilds/935157109761388554/widget.png?style=banner2"></a>
-</div>
+  <div>
+    <a href="https://team.arcades.ga/discord">
+      <img src="https://discord.com/api/guilds/935157109761388554/widget.png?style=banner2">
+    </a>
+  </div>
 </center>
 
 Nuestra [**Comunidad**](https://team.arcades.ga/discord) de discord nos nedicamos a codificar y a traer nuevos codigos fuentes [únase a mi servidor de Discord](https://team.arcades.ga/discord) para obtener un Bot personalizado alojado para usted.
@@ -21,7 +23,7 @@ Nuestra [**Comunidad**](https://team.arcades.ga/discord) de discord nos nedicamo
   * [nodejs](https://nodejs.org) versión 16.17.1 o superior, recomiendo la última versión STABLE
   * [python](https://python.org) versión 3.8 o superior, para instalar la base de datos `enmap` (better-sqlite3)
 
-</details>
+  </details>
 
 ## 🤖 Requisitos para iniciar
 
@@ -41,7 +43,7 @@ Nuestra [**Comunidad**](https://team.arcades.ga/discord) de discord nos nedicamo
           ```
        * Algo como eso tenga en cuenta el **HTTP** no agreges **HTTPS** te congundiras<br />
  
-</details>
+  </details>
 
 <br/>
 
