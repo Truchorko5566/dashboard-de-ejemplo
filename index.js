@@ -7,12 +7,11 @@
      * 
      *   BOT CODED BY: Luis Misaki#4165 | https://team.arcades.ga/discord
      *********************************************************/
-
      const Discord = require("discord.js");
      const config = require(`./config.json`);
      const dash = require(`./dashboard/dash.json`);
-     const colors = require("colors");
      const Enmap = require("enmap");
+     const colors = require("colors");
  
      const client = new Discord.Client({
          shards: "auto",
@@ -48,7 +47,7 @@
       *********************************************************/
      if(cmd && cmd.length > 0 && message.content.startsWith(prefix)){
              if(cmd == "prefijo"){
-                 message.reply(`¡El prefijo actual es \`${prefix}\`!\n**¡Ve al panel para cambiarlo!**\n> ${dash.website.domain}`).catch(console.error);
+                 message.reply(`¡El prefijo actual es \`${prefix}\`!\n**¡Ve al panel para cambiarlo!**\n> ${dash.site.DOMAIN}`).catch(console.error);
              }
              if(cmd == "hola"){
                  message.reply(holamundo).catch(console.error);

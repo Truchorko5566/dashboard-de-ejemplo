@@ -1,12 +1,13 @@
 {
     "config": {
-        "port": 80,
-        "callback": "http://localhost/callback",
-        "clientID": "CLIENT_ID",
-        "secret": "CLIENT_SECRET"
+        "PORT": 3000,
+        "CALLBACK": "http://localhost/callback",
+        "CLIENT_ID": "1024022200296165498",
+        "CLIENT_SECRET": "fR7Mc40JnhC2j1km06p1Dop-hBHHPgOz"
     },
-    "website": {
-        "support": "https://team.arcades.ga/discord",
-        "domain" : "http://localhost"
+    "conment": "Hola puedes congigurar colocando el CLIENT_ID, CLIENT_SECRET, DISCORD, DOMAIN, CALLBACK, PORT",
+    "site": {
+        "DISCORD": "https://team.arcades.ga/discord",
+        "DOMAIN" : "http://localhost"
     }
 }
