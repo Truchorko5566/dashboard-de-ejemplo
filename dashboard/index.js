@@ -18,7 +18,7 @@
 
     module.exports = client => {
     /**********************************************************
-     * backend de la web
+     * backend
      *********************************************************/
     const app = express();
     const session = require("express-session");
