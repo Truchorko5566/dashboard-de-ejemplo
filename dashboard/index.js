@@ -7,7 +7,7 @@
     const passort = require("passport");
     const bodyParser = require("body-parser");
     const Strategy = require("passport-discord").Strategy;
-    const Dash_Config = require("./dash.json");
+    const Settings = require("./dash.json");
     const passport = require("passport");
     const express = require("express");
     const url = require("url");
@@ -31,9 +31,9 @@
     passport.serializeUser((user, done) => done(null, user))
     passport.deserializeUser((obj, done) => done(null, obj))
     passport.use(new Strategy({
-        clientID: Dash_Config.config.CLIENT_ID,
-        clientSecret: process.env.CLIENT_SECRET || Dash_Config.config.CLIENT_SECRET,
-        callbackURL: Dash_Config.config.CALLBACK,
+        clientID: Settings.config.CLIENT_ID,
+        clientSecret: process.env.CLIENT_SECRET || Settings.config.CLIENT_SECRET,
+        callbackURL: Settings.config.CALLBACK,
         scope: ["identify", "guilds", "guilds.join"]
     },
     (accessToken, refreshToken, profile, done) => {
@@ -125,8 +125,8 @@
             user: req.isAuthenticated() ? req.user : null,
             bot: client,
             Permissions: Discord.Permissions,
-            botconfig: Dash_Config.site,
-            callback: Dash_Config.config.CALLBACK,
+            botconfig: Settings.site,
+            callback: Settings.config.CALLBACK,
         })
     })
 
@@ -141,8 +141,8 @@
             user: req.isAuthenticated() ? req.user : null,
             bot: client,
             Permissions: Discord.Permissions,
-            botconfig: Dash_Config.site,
-            callback: Dash_Config.config.CALLBACK,
+            botconfig: Settings.site,
+            callback: Settings.config.CALLBACK,
         })
     })
 
@@ -150,14 +150,14 @@
      * discord server
      *********************************************************/
     app.get("/discord", (req, res) => {
-        res.redirect(`${Dash_Config.site.DISCORD}`)
+        res.redirect(`${Settings.site.DISCORD}`)
     });
 
     /**********************************************************
      * incitacion
      *********************************************************/
     app.get("/invite", (req, res) => {
-        res.redirect(`https://discord.com/api/oauth2/authorize?client_id=${Dash_Config.config.CLIENT_ID}&permissions=8&scope=bot%20applications.commands`)
+        res.redirect(`https://discord.com/api/oauth2/authorize?client_id=${Settings.config.CLIENT_ID}&permissions=8&scope=bot%20applications.commands`)
     });
 
     app.get("/dashboard/:guildID", checkAuth, async (req, res) => {
@@ -176,18 +176,18 @@
         return res.redirect("/?error=" + encodeURIComponent("Inicia sesión primero por favor! / ¡Únete al gremio de nuevo!"))
         if(!member.permissions.has(Discord.Permissions.FLAGS.MANAGE_GUILD))
         return res.redirect("/?error=" + encodeURIComponent("no tienes permitido hacer eso"))
-        client.Dash_Config.ensure(guild.id, {
+        client.settings.ensure(guild.id, {
             prefix: BotConfig.prefix,
             holamundo: "Hola como estas :)",
         });
-        res.render("Dash_Config", {
+        res.render("settings", {
             req: req,
             user: req.isAuthenticated() ? req.user : null,
             guild: guild,
             bot: client,
             Permissions: Discord.Permissions,
-            botconfig: Dash_Config.site,
-            callback: Dash_Config.config.CALLBACK,
+            botconfig: Settings.site,
+            callback: Settings.config.CALLBACK,
         })
     })
 
@@ -207,20 +207,20 @@
         return res.redirect("/?error=" + encodeURIComponent("Inicia sesión primero por favor! / ¡Únete al gremio de nuevo!"))
         if(!member.permissions.has(Discord.Permissions.FLAGS.MANAGE_GUILD))
         return res.redirect("/?error=" + encodeURIComponent("no tienes permitido hacer eso"))
-        client.Dash_Config.ensure(guild.id, {
+        client.settings.ensure(guild.id, {
             prefix: BotConfig.prefix,
             holamundo: "Hola como estas :)",
         });
-        if(req.body.prefix) client.Dash_Config.set(guild.id, req.body.prefix, "prefix");
-        if(req.body.holamundo) client.Dash_Config.set(guild.id, req.body.holamundo, "holamundo");
-        res.render("Dash_Config", {
+        if(req.body.prefix) client.settings.set(guild.id, req.body.prefix, "prefix");
+        if(req.body.holamundo) client.settings.set(guild.id, req.body.holamundo, "holamundo");
+        res.render("settings", {
             req: req,
             user: req.isAuthenticated() ? req.user : null,
             guild: guild,
             bot: client,
             Permissions: Discord.Permissions,
-            botconfig: Dash_Config.site,
-            callback: Dash_Config.config.CALLBACK,
+            botconfig: Settings.site,
+            callback: Settings.config.CALLBACK,
         })
     })
 
@@ -229,7 +229,7 @@
      *********************************************************/
     app.get("*", (req, res) => {
         var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
-        if (fullUrl == Dash_Config.site.DOMAIN || fullUrl == Dash_Config.site.DOMAIN || fullUrl == Dash_Config.site.DOMAIN || fullUrl == Dash_Config.site.DOMAIN ) {
+        if (fullUrl == Settings.site.DOMAIN || fullUrl == Settings.site.DOMAIN || fullUrl == Settings.site.DOMAIN || fullUrl == Settings.site.DOMAIN ) {
             res.redirect("index.ejs");
         } else {
             res.redirect("/");
@@ -240,8 +240,8 @@
      * inciar la dashboard
      *********************************************************/
     const http = require("http").createServer(app);
-    http.listen(Dash_Config.config.PORT, () => {
-        console.log(`El sitio web está en línea en el puerto: ${Dash_Config.config.PORT}, ${Dash_Config.site.DOMAIN}`);
+    http.listen(Settings.config.PORT, () => {
+        console.log(`El sitio web está en línea en el puerto: ${Settings.config.PORT}, ${Settings.site.DOMAIN}`);
     });
 
 }
